@@ -21,7 +21,7 @@ const Body = () => {
             setlistOfRes(apiJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             setFilterListOfRes(apiJson?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-     };
+     }; 
     
     //  if(listOfRes.length === 0){
     //     return (<ShimmerCard />);
