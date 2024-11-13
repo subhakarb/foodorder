@@ -2,10 +2,13 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 const Header = () => {
   const [btnName, setBtnName] = useState("LogIn");
   const onlineStatus = useOnlineStatus();
   const LogedInUser = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="flex justify-between items-center p-6 shadow-lg mb-4">
       <div>
@@ -16,7 +19,14 @@ const Header = () => {
       </div>
       <div className="flex align-middle">
         <ul className="flex gap-3">
-          <li>Online Status: {onlineStatus ? "True" : "No"}</li>
+          <li>
+            Online Status:{" "}
+            {onlineStatus ? (
+              <span className="text-green-700 font-bold">True</span>
+            ) : (
+              <span className="text-red-600 font-bold"> No </span>
+            )}
+          </li>
           <li>
             <Link to="/" className="text-sm/6 font-semibold text-gray-900">
               Home
@@ -28,10 +38,16 @@ const Header = () => {
           <li>
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="cursor-pointer">
             <Link to="/grocery">Grocery</Link>
           </li>
+          <li>
+            <Link to="/cart" className="font-bold">
+              Cart ({cartItems.length} items){" "}
+            </Link>
+          </li>
           <li
+            className="cursor-pointer"
             onClick={() => {
               {
                 btnName === "LogIn"

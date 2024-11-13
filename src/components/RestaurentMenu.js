@@ -13,13 +13,13 @@ const RestraMenu = () => {
   }
   const { name, city, cuisines, avgRating } = resInfo?.cards[2]?.card?.card?.info;
   const { itemCards } = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card;
-
- // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
-  const categories = 
-  resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
-    (c) =>  c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  );
- //console.log(categories);
+ 
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    ); 
   return (
     <div className="restra_menu container m-auto max-w-3xl">
       <h3>{name}</h3>
