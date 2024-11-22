@@ -46,17 +46,19 @@ const Header = () => {
               Cart ({cartItems.length} items){" "}
             </Link>
           </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => {
-              {
-                btnName === "LogIn"
-                  ? setBtnName("LogOut")
-                  : setBtnName("LogIn");
-              }
-            }}
-          >
-            {btnName}
+          <li>
+            <button
+              className="cursor-pointer"
+              onClick={() => {
+                {
+                  btnName === "LogIn"
+                    ? setBtnName("LogOut")
+                    : setBtnName("LogIn");
+                }
+              }}
+            >
+              {btnName}
+            </button>
           </li>
           <li className="font-bold">{LogedInUser.LogedInUser}</li>
         </ul>

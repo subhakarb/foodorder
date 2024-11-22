@@ -7,6 +7,7 @@ const ResCard = (props) => {
     const {resData} = props;
     const { id, name, cloudinaryImageId, avgRating, costForTwo, cuisines  } = resData?.info;
     const LogedInUser = useContext(UserContext);   
+    console.log(resData);
     return (
         <div className="card-item">
            <div className="card_img">
